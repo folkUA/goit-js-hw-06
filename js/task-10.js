@@ -37,6 +37,7 @@ function boxStyle(arr, input) {
     arr[i].style.backgroundColor = getRandomHexColor();
     arr[i].style.width = `${count}px`;
     arr[i].style.height = `${count}px`;
+    
     count += 10;
   }
 }
