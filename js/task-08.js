@@ -7,7 +7,7 @@ function onSubmit(evt) {
   if (!password.value || !email.value) {
     alert("Всі поля обов'язкові для заповнення");
   } else {
-    console.dir({ email: email.value, password: password.value });
+    console.log({ email: email.value, password: password.value });
     evt.currentTarget.reset();
   }
 }

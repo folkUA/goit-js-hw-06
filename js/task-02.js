@@ -13,7 +13,7 @@ ingredients.forEach((item) => {
   const li = document.createElement("li");
   li.classList = "item";
   li.textContent = item;
-  str += li.outerHTML;
+  ul.append(li)
 });
 
-ul.insertAdjacentHTML("beforeend", str);
+

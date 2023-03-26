@@ -14,11 +14,10 @@ control.lastElementChild.addEventListener("click", onClick);
 function onClick(evt) {
   const btn = evt.currentTarget;
   if (btn.dataset === btnCreate.dataset) {
-    boxes.insertAdjacentHTML(
-      "beforeend",
-      createBox(control.firstElementChild.value)
-    );
-    boxStyle([...boxes.children]);
+    const input = control.firstElementChild.value;
+    boxes.insertAdjacentHTML("beforeend", createBox(input));
+
+    boxStyle([...boxes.children], input);
   } else {
     boxes.innerHTML = "";
   }
@@ -32,12 +31,12 @@ function createBox(arg) {
   return str;
 }
 
-function boxStyle(arr) {
-  let count = 0;
-  arr.forEach((item) => {
-    count += 30;
-    item.style.backgroundColor = getRandomHexColor();
-    item.style.width = `${count}px`;
-    item.style.height = `${count}px`;
-  });
+function boxStyle(arr, input) {
+  let count = 30;
+  for (let i = arr.length - input; i < arr.length; i += 1) {
+    arr[i].style.backgroundColor = getRandomHexColor();
+    arr[i].style.width = `${count}px`;
+    arr[i].style.height = `${count}px`;
+    count += 10;
+  }
 }
